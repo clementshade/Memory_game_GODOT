@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://font/Font_Huge.tres" type="DynamicFont" id=1]
+[ext_resource path="res://code/Game_over.gd" type="Script" id=2]
+[ext_resource path="res://font/Font_Big.tres" type="DynamicFont" id=3]
+[ext_resource path="res://font/Font_small.tres" type="DynamicFont" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Game_over" type="Node"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -147.998
+margin_top = -23.5451
+margin_right = -107.998
+margin_bottom = 16.4549
+rect_scale = Vector2( 25.9289, 27.6923 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game_Over" type="Label" parent="."]
+margin_left = 70.6352
+margin_top = 346.449
+margin_right = 497.635
+margin_bottom = 447.449
+custom_fonts/font = ExtResource( 1 )
+text = "GAME OVER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="high_score_end" type="Label" parent="."]
+margin_left = 73.0406
+margin_top = 501.795
+margin_right = 489.041
+margin_bottom = 640.795
+custom_fonts/font = ExtResource( 3 )
+text = "hh"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score_end" type="Label" parent="."]
+margin_left = 91.0
+margin_top = 632.0
+margin_right = 507.0
+margin_bottom = 771.0
+custom_fonts/font = ExtResource( 4 )
+text = "hh"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 205.308
+margin_top = 823.072
+margin_right = 356.308
+margin_bottom = 892.072
+custom_fonts/font = ExtResource( 3 )
+text = "HOME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game_over" type="TouchScreenButton" parent="Label"]
+position = Vector2( -28.2843, -14.1422 )
+scale = Vector2( 10.9824, 5.73987 )
+shape = SubResource( 1 )
+[connection signal="pressed" from="Label/Game_over" to="." method="_on_Game_over_pressed"]

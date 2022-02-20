@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://font/Font_small.tres" type="DynamicFont" id=1]
+[ext_resource path="res://code/clock.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://font/comic.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 34
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[node name="Control" type="Control"]
+margin_left = 240.271
+margin_top = 272.307
+margin_right = 280.271
+margin_bottom = 312.307
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = -14.6558
+margin_top = -12.6557
+margin_right = 25.3442
+margin_bottom = 27.3443
+rect_scale = Vector2( 1.06437, 1.06437 )
+color = Color( 0.254902, 0.105882, 0.105882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Highscore" type="Label" parent="."]
+margin_left = -120.054
+margin_top = -262.611
+margin_right = 50.9457
+margin_bottom = -173.611
+custom_fonts/font = SubResource( 2 )
+text = "Highscore"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sec" type="Label" parent="."]
+margin_left = -17.1873
+margin_top = -10.3784
+margin_right = 40.8127
+margin_bottom = 29.6216
+custom_fonts/font = ExtResource( 1 )
+text = "time"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

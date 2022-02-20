@@ -1,0 +1,98 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://code/randomizer.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/square.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/triangle.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/diamond.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/circle.png" type="Texture" id=5]
+[ext_resource path="res://code/circleimg.gd" type="Script" id=6]
+[ext_resource path="res://code/triangleimg.gd" type="Script" id=7]
+[ext_resource path="res://code/diamondimg.gd" type="Script" id=8]
+[ext_resource path="res://code/squareimg.gd" type="Script" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 4 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="image" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="squareimg" type="AnimatedSprite" parent="."]
+position = Vector2( 113.137, 255.973 )
+frames = SubResource( 3 )
+script = ExtResource( 9 )
+
+[node name="triangleimg" type="AnimatedSprite" parent="."]
+position = Vector2( 229.316, 260.235 )
+frames = SubResource( 6 )
+script = ExtResource( 7 )
+
+[node name="circleimg" type="AnimatedSprite" parent="."]
+position = Vector2( 473.422, 265.58 )
+frames = SubResource( 9 )
+script = ExtResource( 6 )
+
+[node name="diamondimg" type="AnimatedSprite" parent="."]
+position = Vector2( 346.915, 269.144 )
+frames = SubResource( 12 )
+script = ExtResource( 8 )

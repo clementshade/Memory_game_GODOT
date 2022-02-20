@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scences/Diamond.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scences/Circle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scences/square.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scences/Triangle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://code/level.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/BG.png" type="Texture" id=6]
+[ext_resource path="res://scences/image.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scences/clock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Exit.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Restart.png" type="Texture" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+
+[node name="test_screen" type="Node2D"]
+position = Vector2( 112.505, 203.778 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 188.253, 348.506 )
+texture = ExtResource( 6 )
+
+[node name="image" parent="." instance=ExtResource( 7 )]
+position = Vector2( -115.175, -168.963 )
+
+[node name="Circle" parent="." groups=[
+"button",
+] instance=ExtResource( 2 )]
+position = Vector2( 59.1469, 570.002 )
+scale = Vector2( 2, 2 )
+
+[node name="Square" parent="." groups=[
+"button",
+] instance=ExtResource( 3 )]
+position = Vector2( 309.147, 570.002 )
+scale = Vector2( 2, 2 )
+
+[node name="Diamond" parent="." groups=[
+"button",
+] instance=ExtResource( 1 )]
+position = Vector2( 309.147, 270.002 )
+scale = Vector2( 2, 2 )
+
+[node name="Triangle" parent="." groups=[
+"button",
+] instance=ExtResource( 4 )]
+position = Vector2( 59.1469, 270.002 )
+scale = Vector2( 2, 2 )
+
+[node name="Control" parent="." instance=ExtResource( 8 )]
+margin_left = 179.243
+margin_top = 184.08
+margin_right = 219.243
+margin_bottom = 224.08
+
+[node name="Exit" type="Sprite" parent="."]
+position = Vector2( -50.1252, -24.0109 )
+texture = ExtResource( 9 )
+
+[node name="stop" type="TouchScreenButton" parent="Exit"]
+position = Vector2( -38.1407, -36.0217 )
+scale = Vector2( 3.69535, 3.69535 )
+shape = SubResource( 1 )
+
+[node name="Restart" type="Sprite" parent="."]
+position = Vector2( 403.875, -22.0109 )
+texture = ExtResource( 10 )
+
+[node name="restart" type="TouchScreenButton" parent="Restart"]
+position = Vector2( -35.3553, -28.2843 )
+scale = Vector2( 3.35348, 3.35348 )
+shape = SubResource( 2 )
+[connection signal="touched" from="Circle" to="." method="_on_Circle_touched"]
+[connection signal="touched" from="Square" to="." method="_on_Square_touched"]
+[connection signal="touched" from="Diamond" to="." method="_on_Diamond_touched"]
+[connection signal="touched" from="Triangle" to="." method="_on_Triangle_touched"]
+[connection signal="pressed" from="Exit/stop" to="." method="_on_stop_pressed"]
+[connection signal="pressed" from="Restart/restart" to="." method="_on_restart_pressed"]
